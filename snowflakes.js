@@ -4,7 +4,7 @@ function newRandomsnow() {
         y: randomInt(0, cnv.height),
         r: randomInt(3, 7),
         color: "white",
-        v: randomInt(1, 10)
+        v: randomInt(1, 20)
     }
 }
 
@@ -19,21 +19,17 @@ function snowflakeArray(total) {
     return array;
 }
 
-function drawsnow(snow) {
+function drawsnow(snflake) {
     fill("white");
-    circle(snow.x, snow.y, snow.r, "fill");
-    snow.y += snow.v;
+    circle(snflake.x, snflake.y, snflake.r, "fill");
+   
 }
 
-function movesnow(snow) {
-    if (snow.y > cnv.height) {
-        snow.y = 0;
-        snow.x = randomInt(0, 800)
+function movesnow(snflake) {
+    if (snflake.y > cnv.height) {
+        snflake.y = 0;
+        snflake.x = randomInt(0, 800)
     }
+    snflake.y += snflake.v;
 }
 
-function teleport(snow) {
-    if (snow.y === 700) {
-        snow.y = cnv.height;
-    }
-}
